@@ -43,7 +43,7 @@ jobs:
           MAX_CHECK_NODES: "100"
           VPNGATE_API: "https://www.vpngate.net/api/iphone/"
           NODES_URL: "https://skyboy442.github.io/gate/nodes.txt"
-          EDGE_HOSTS: "vpngate-edgetunnel.dwmsky19861122.workers.dev:443"
+          EDGE_HOSTS: "edge.710707.xyz:443"
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
