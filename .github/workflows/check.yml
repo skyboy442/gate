@@ -1,4 +1,4 @@
-name: VPN Gate Node Check
+name: Edge Node Check
 
 on:
   schedule:
@@ -37,7 +37,7 @@ jobs:
       - name: Check SSTP nodes and build page
         run: python vpngate.py
         env:
-          CHECK_WORKER: "https://vpngate-check.dwmsky19861122.workers.dev/check?sstp=vpn:vpn@"
+          CHECK_WORKER: "https://probe-3f86a8aa.dwmsky19861122.workers.dev/check?sstp=vpn:vpn@"
           CHECK_CONCURRENCY: "8"
           CHECK_TIMEOUT: "30"
           MAX_CHECK_NODES: "100"
