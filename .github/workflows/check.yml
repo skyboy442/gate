@@ -1,58 +1,14 @@
-name: Edge Node Check
+name: Edge Project (Removed)
 
 on:
-  schedule:
-    - cron: "*/30 * * * *"
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: gate-check
-  cancel-in-progress: false
 
 jobs:
-  check:
+  notice:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-          cache: pip
-
-      - name: Install dependencies
-        run: pip install -r requirements.txt
-
-      - name: Check SSTP nodes and build page
-        run: python vpngate.py
-        env:
-          CHECK_WORKER: "https://probe-3f86a8aa.dwmsky19861122.workers.dev/check?sstp=vpn:vpn@"
-          CHECK_CONCURRENCY: "8"
-          CHECK_TIMEOUT: "30"
-          MAX_CHECK_NODES: "100"
-          VPNGATE_API: "https://www.vpngate.net/api/iphone/"
-          NODES_URL: "https://skyboy442.github.io/gate/nodes.txt"
-          EDGE_HOSTS: "edge.710707.xyz:443"
-
-      - name: Configure Pages
-        uses: actions/configure-pages@v5
-
-      - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: public
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deployment removed
+        run: echo "This deployment was removed. Automatic checks and publishing are stopped."
